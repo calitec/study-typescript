@@ -2,14 +2,14 @@ import React, { CSSProperties } from 'react';
 import { Todo } from '../modules/todos';
 
 type TodoItemProps = {
-  todp: Todo;
+  todo: Todo;
   onToggle: (id: number) => void;
   onRemove: (id: number) => void;
 }
 
 function TodoItem({ todo, onToggle, onRemove }: TodoItemProps) {
   const handleToggle = () => onToggle(todo.id);
-  const handleRemove = () => onToggle(todo.id);
+  const handleRemove = () => onRemove(todo.id);
 
   const textStyle: CSSProperties ={
     textDecoration: todo.done ? 'line-through' : 'none'

@@ -19,6 +19,8 @@ const initialState = {
 
 type CounterAction =
   | ReturnType<typeof increase>
+  // | { type: 'counter/INCREASE' }
+  // | { type: typeof INCREASE }
   | ReturnType<typeof decrease>
   | ReturnType<typeof increaseBy>
 

@@ -1,8 +1,9 @@
 import React, { CSSProperties } from 'react';
 import { Todo } from '../modules/todos';
+import TodoItem from './TodoItem';
 
 type TodoListProps = {
-  tods: Todo[];
+  todos: Todo[];
   onToggle: (id: number) => void;
   onRemove: (id: number) => void;
 }
