@@ -30,13 +30,14 @@ export const asyncState = {
 };
 
 type AnyAsyncActionCreator = AsyncActionCreatorBuilder<any, any, any>;
-export function transformToArray<AC extends AnyAsyncActionCreator>(asyncActionCreator: AC) {
-  const { request, success, failure } = asyncActionCreator;
+export function transformToArray<AC extends AnyAsyncActionCreator>(AsyncActionCreatorBuilder: AC) {
+  const { request, success, failure } = AsyncActionCreatorBuilder;
   return [ request, success, failure ];
 }
 export function createAsyncReducer<S, AC extends AnyAsyncActionCreator, K extends keyof S>(AsyncActionCreatorBuilder: AC, key: K) {
    return ( state: S, action: ActionType<AC> ) => {
     const [ request, success, failure ] = transformToArray(AsyncActionCreatorBuilder).map(getType);
+    console.log(action,'1');
     switch ( action.type ) {
       case request:
         return {
