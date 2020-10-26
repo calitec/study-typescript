@@ -18,7 +18,7 @@ export default function createAsyncSaga<T1, P1, T2, P2, T3, P3>(
 ) {
   // 리턴값
   return function* saga(action: ReturnType<typeof asyncActionCreator.request>) {
-    console.log(action,'2');
+    // console.log(action,'2');
     try {
       const result = isPayloadAction<P1>(action)
       ? yield call(promiseCreator, action.payload)
